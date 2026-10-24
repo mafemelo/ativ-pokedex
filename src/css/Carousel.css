@@ -1,0 +1,64 @@
+.carousel {
+  --largura: 250px;
+  --passo: 240px;
+}
+
+.stage {
+  position: relative;
+  height: 400px;
+  margin-top: 8px;
+  overflow: hidden;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+.stage.dragging {
+  cursor: grabbing;
+}
+
+.stage img {
+  -webkit-user-drag: none;
+}
+
+.slide {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  width: var(--largura);
+
+  transform: translateX(calc(-50% + var(--o) * var(--passo))) scale(calc(1 - var(--abs) * 0.1));
+  opacity: calc(1 - var(--abs) * 0.3);
+  z-index: calc(10 - var(--abs));
+  transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s;
+}
+
+.slide.side {
+  cursor: pointer;
+}
+
+.slide.side .pokemon-card {
+  pointer-events: none;
+}
+
+.slide.center .pokemon-card {
+  border-color: var(--tc);
+}
+
+.jump-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 4px 0 0;
+}
+
+@media (max-width: 760px) {
+  .carousel {
+    --largura: 220px;
+    --passo: 150px;
+  }
+  .slide.dist-2,
+  .slide.dist-3 {
+    display: none;
+  }
+}

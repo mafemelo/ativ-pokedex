@@ -1,0 +1,91 @@
+:root {
+  --bg: #fafafa;
+  --panel: #ffffff;
+  --panel-2: #f2f2f4;
+  --text: #16161a;
+  --muted: #74747f;
+  --line: #e6e6ea;
+  --accent: #16161a;
+  --accent-ink: #ffffff;
+  --star: #e8a400;
+  --green: #1f9d55;
+  --glow-1: rgba(255, 105, 120, 0.3);
+  --glow-2: rgba(90, 150, 255, 0.32);
+  --glow-3: rgba(255, 205, 90, 0.28);
+  --font: 'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0e0e11;
+  --panel: #16161a;
+  --panel-2: #202026;
+  --text: #f2f2f5;
+  --muted: #9494a0;
+  --line: #2a2a31;
+  --accent: #f2f2f5;
+  --accent-ink: #16161a;
+  --star: #f5c542;
+  --glow-1: rgba(255, 80, 110, 0.2);
+  --glow-2: rgba(80, 120, 255, 0.26);
+  --glow-3: rgba(170, 90, 255, 0.2);
+  --green: #4cd387;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(ellipse 60% 50% at 8% 0%, var(--glow-1), transparent 70%),
+    radial-gradient(ellipse 55% 50% at 95% 12%, var(--glow-2), transparent 70%),
+    radial-gradient(ellipse 70% 45% at 50% 105%, var(--glow-3), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
